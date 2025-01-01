@@ -2,14 +2,14 @@ group 'com.mix1009.android_path_provider'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.5.30'
+    ext.kotlin_version = '1.7.10'  // Updated Kotlin version for better compatibility
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.2'
+        classpath 'com.android.tools.build:gradle:7.3.1'  // Updated Android Gradle Plugin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -25,20 +25,26 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 34 // Updated to target the latest stable SDK
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+
     defaultConfig {
-        minSdkVersion 16
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion 21  // Updated minSdkVersion to 21 for wider compatibility
+        targetSdkVersion 33  // Targeting the latest SDK version
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"  // Updated for AndroidX
     }
+
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    // Optional: Add necessary permissions or file handling configurations for scoped storage
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.8.0'  // Ensures compatibility with modern AndroidX libraries
 }
