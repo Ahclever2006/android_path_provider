@@ -2,7 +2,7 @@ group 'com.mix1009.android_path_provider'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.10'  // Updated Kotlin version for better compatibility
+    ext.kotlin_version = '1.9.0'  // Updated Kotlin version for better compatibility
     repositories {
         google()
         mavenCentral()
